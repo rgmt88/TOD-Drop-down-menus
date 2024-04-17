@@ -1,16 +1,25 @@
-function productsMenuDD() {
+function dropdownMenu(dropdownMenuID, dropdownClass) {
     document.addEventListener('DOMContentLoaded', function() {
-        const productsMenu = document.getElementById('productsMenu');
-        const dropdown = productsMenu.querySelector('.dropdown-content');
+        const menuElement = document.getElementById(dropdownMenuID);
+        if (!menuElement) {
+            console.error('Dropdown menu ID not found: ', dropdownMenuID);
+            return;
+        }
 
-        productsMenu.addEventListener('mouseover', function() {
+        const dropdown = productsMenu.querySelector(dropdownClass);
+        if (!dropdown) {
+            console.error('Dropdown class not found: ', dropdown);
+            return;
+        }
+
+        menuElement.addEventListener('mouseover', function() {
             dropdown.classList.add('visible');
         });
 
-        productsMenu.addEventListener('mouseout', function() {
+        menuElement.addEventListener('mouseout', function() {
             dropdown.classList.remove('visible');
         });
     });
 }
 
-productsMenuDD();
+dropdownMenu('productsMenu', '.dropdown-content');

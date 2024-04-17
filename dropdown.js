@@ -1,14 +1,14 @@
 function dropdownMenu(dropdownMenuID, dropdownClass) {
-    document.addEventListener('DOMContentLoaded', function() {
+    const initDropdown = function() {
         const menuElement = document.getElementById(dropdownMenuID);
         if (!menuElement) {
             console.error('Dropdown menu ID not found: ', dropdownMenuID);
             return;
         }
 
-        const dropdown = productsMenu.querySelector(dropdownClass);
+        const dropdown = menuElement.querySelector(dropdownClass);
         if (!dropdown) {
-            console.error('Dropdown class not found: ', dropdown);
+            console.error('Dropdown class not found: ', dropdownClass);
             return;
         }
 
@@ -19,7 +19,13 @@ function dropdownMenu(dropdownMenuID, dropdownClass) {
         menuElement.addEventListener('mouseout', function() {
             dropdown.classList.remove('visible');
         });
-    });
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initDropdown);
+    } else {
+        initDropdown();
+    }
 }
 
 dropdownMenu('productsMenu', '.dropdown-content');

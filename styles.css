@@ -120,10 +120,28 @@ nav ul li {
 
 /* Active class for dots */
 .dot.active {
-    background-color: #717171; /* Darker grey for the active dot */
+    background-color: red; /* Darker grey for the active dot */
 }
 
 /* Hover effect for dots */
 .dot:hover {
     background-color: #a0a0a0; /* Medium grey on hover */
+}
+
+#registrationForm {
+    margin: 15px 0 15px 0;
+}
+
+.error {
+    border: 2px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8rem;
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 10px;
 }
